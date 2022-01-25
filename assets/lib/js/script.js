@@ -1,3 +1,5 @@
+// Code comes from https://developer.mozilla.org/en-US/docs/Games/Tutorials/2D_Breakout_game_pure_JavaScript
+
 //Canvas
 var canvas = document.getElementById("myCanvas");
 var ctx = canvas.getContext("2d");

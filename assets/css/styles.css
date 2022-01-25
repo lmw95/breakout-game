@@ -8,7 +8,7 @@
 
 body {
     background-color: #333333;
-    background: url(/assets/media/space.jpg) no-repeat center;
+    background: url(../assets/media/space.jpg) no-repeat center;
     background-size: cover;
 }
 
