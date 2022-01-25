@@ -1,0 +1,25 @@
+
+@import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@400;900&display=swap');
+
+:root {
+    --head: 'Orbitron', sans-serif;
+    --text: pixel, Courier, monospace;
+}
+
+body {
+    height: 100vh;
+    background-color: #333333;
+}
+
+h1 {
+    font-family: var(--head);
+    font-weight: 900;
+    font-size: 3em;
+    background: -webkit-linear-gradient(180deg, #C7DD3A, #1ECE9E, #3765A9, #C7DD3A);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+i {
+    color: #C7DD3A;
+}
