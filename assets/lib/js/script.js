@@ -9,6 +9,8 @@ function draw() {
     ctx.fillStyle = "#C7DD3A";
     ctx.fill();
     ctx.closePath();
+    x += dx;
+    y += dy;
 }
 
 setInterval(draw, 10);
@@ -17,4 +19,11 @@ setInterval(draw, 10);
 // Coordinate variables
 var x = canvas.width/2;
 var y = canvas.height-30;
+
+
+// Coordinates to make ball move
+var dx = 2;
+var dy = -2;
+
+
 
