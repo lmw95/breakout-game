@@ -50,8 +50,19 @@ function draw() {
     if(x + dx > canvas.width-ballRadius || x + dx < ballRadius) {
         dx = -dx;
     }
-    if(y + dy > canvas.height-ballRadius || y + dy < ballRadius) {
+    
+    if(y + dy < ballRadius) {
         dy = -dy;
+    }
+    else if(y + dy > canvas.height-ballRadius) {
+        if(x > paddleX && x < paddleX + paddleWidth) {
+            dy = -dy;
+        }
+        else {
+            alert("GAME OVER");
+            document.location.reload();
+            clearInterval(interval); // Needed for Chrome to end game
+        }
     }
 
     if(rightPressed) {
@@ -93,7 +104,7 @@ function keyUpHandler(e) {
 }
 
 
-setInterval(draw, 10);
+var interval = setInterval(draw, 10);
 
 
 
