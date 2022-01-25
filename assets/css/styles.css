@@ -49,3 +49,11 @@ footer {
     color: #3765A9;
     background-color: #C7DD3A;
 }
+
+@media screen and (max-width: 719px) {
+
+    canvas {
+        width: 95%;
+        height: 80%;
+    }
+}
