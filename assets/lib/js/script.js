@@ -36,6 +36,9 @@ for (var c = 0; c < brickColumnCount; c++) {
     }
 }
 
+//Score
+var score = 0;
+
 
 // Handling user keyboard controls
 document.addEventListener("keydown", keyDownHandler, false);
@@ -62,17 +65,30 @@ function keyUpHandler(e) {
 
 // Detecting ball collision with canvas wall
 function collisionDetection() {
-    for (var c = 0; c < brickColumnCount; c++) {
-        for (var r = 0; r < brickRowCount; r++) {
+    for(var c=0; c<brickColumnCount; c++) {
+        for(var r=0; r<brickRowCount; r++) {
             var b = bricks[c][r];
-            if (b.status == 1) {
-                if (x > b.x && x < b.x + brickWidth && y > b.y && y < b.y + brickHeight) {
+            if(b.status == 1) {
+                if(x > b.x && x < b.x+brickWidth && y > b.y && y < b.y+brickHeight) {
                     dy = -dy;
                     b.status = 0;
+                    score++;
+                    if(score == brickRowCount*brickColumnCount) {
+                        alert("YOU WIN, CONGRATULATIONS!");
+                        document.location.reload();
+                        clearInterval(interval); // Needed for Chrome to end game
+                    }
                 }
             }
         }
     }
+}
+
+// Draw score 
+function drawScore() {
+    ctx.font = "16px Orbitron";
+    ctx.fillStyle = "#C7DD3A";
+    ctx.fillText("Score: "+score, 8, 20);
 }
 
 // Draw ball
@@ -120,6 +136,7 @@ function draw() {
     drawBall();
     drawPaddle();
     collisionDetection();
+    drawScore();
 
     if (x + dx > canvas.width - ballRadius || x + dx < ballRadius) {
         dx = -dx;
